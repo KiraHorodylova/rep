@@ -1,3 +1,4 @@
+from math import sqrt
 #mean() function. It takes an array o numbers and calculates the mean value of them, the output is returned as a float rounded to 2 decimal points
 class methods:
     @staticmethod
@@ -34,20 +35,24 @@ class methods:
             index = (n_len - 1) // 2
             median=n[index]
             return median
-    #standard deviation function. It takes an array and calculates it's standard deviation value 
-    @staticmethod  
-    def std_deviationf(data):
-        median=methods.median_f(data)
-        
 
     #standard deviation function. It takes an array and calculates it's standard deviation value   
     @staticmethod
     def std_deviationf(data):
-        pass
-
-
-
+        mean=methods.mean_f(data)
+        sigma=0
+        for i in data:
+            sigma+=(i-mean)**2
+        sigma/=len(data)
+        return sqrt(sigma)
     
-
+    @staticmethod
     def variancef(data):
-        pass
+        mean=methods.mean_f(data)
+        s=0
+        n=len(data)-1
+        for i in data:
+            s+=(i-mean)**2
+        s/=n
+        return s
+    
